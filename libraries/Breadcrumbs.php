@@ -51,13 +51,20 @@ class Breadcrumbs {
 	 * @param	string $href
 	 * @return	void
 	 */		
-	function push($page, $href)
+	function push($page, $href, $base = false)
 	{
 		// no page or href provided
 		if (!$page OR !$href) return;
 		
 		// Prepend site url
-		$href = site_url($href);
+		if($base === false)
+		{
+			$href = base_url($href);
+		}
+		else
+		{
+			$href = site_url($href);
+		}
 		
 		// push breadcrumb
 		array_push($this->breadcrumbs, array('page' => $page, 'href' => $href));
@@ -73,13 +80,20 @@ class Breadcrumbs {
 	 * @param	string $href
 	 * @return	void
 	 */		
-	function unshift($page, $href)
+	function unshift($page, $href, $base = false)
 	{
 		// no crumb provided
 		if (!$page OR !$href) return;
 		
 		// Prepend site url
-		$href = site_url($href);
+		if($base === false)
+		{
+			$href = base_url($href);
+		}
+		else
+		{
+			$href = site_url($href);
+		}
 		
 		// add at firts
 		array_unshift($this->breadcrumbs, array('page' => $page, 'href' => $href));
