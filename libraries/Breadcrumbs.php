@@ -60,7 +60,7 @@ class Breadcrumbs {
 		$href = site_url($href);
 		
 		// push breadcrumb
-		$this->breadcrumbs[$href] = array('page' => $page, 'href' => $href);
+		array_push($this->breadcrumbs, array('page' => $page, 'href' => $href));
 	}
 	
 	// --------------------------------------------------------------------
