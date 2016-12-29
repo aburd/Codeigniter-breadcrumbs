@@ -11,11 +11,16 @@ __* No longer maintained__
 	// load Breadcrumbs
 	$this->load->library('breadcrumbs');
 
-	// add breadcrumbs
-	$this->breadcrumbs->push('Section', '/section');
-	$this->breadcrumbs->push('Page', '/section/page');
+	// add breadcrumbs (add breadcrumb to end)
+	$this->breadcrumbs->push('Section', '/section',);
 
-	// unshift crumb
+	// add breadcrumb with Base Site URL (add without index.php in the url)
+	$this->breadcrumbs->push('Page', '/section/page', true);
+
+	// unshift crumb (add breadcrumb to front)
+	$this->breadcrumbs->unshift('Home', '/');
+
+	// unshift crumb with Base Site URL (add without index.php in the url)
 	$this->breadcrumbs->unshift('Home', '/');
 
 	// output
