@@ -21,7 +21,7 @@ __* No longer maintained__
 	$this->breadcrumbs->unshift('Home', '/');
 
 	// unshift crumb with Base Site URL (add without index.php in the url)
-	$this->breadcrumbs->unshift('Home', '/');
+	$this->breadcrumbs->unshift('Home', '/', true);
 
 	// output
 	$this->breadcrumbs->show();
